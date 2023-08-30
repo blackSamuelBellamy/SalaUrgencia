@@ -17,7 +17,7 @@ public class Visita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_Medico", nullable = false)
     private Medico medico;
 

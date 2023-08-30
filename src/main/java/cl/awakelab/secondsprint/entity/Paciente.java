@@ -27,9 +27,6 @@ public class Paciente {
     @Column(nullable = false, length = 30)
     private String apellido2;
 
-    @ManyToMany(mappedBy = "pacientes")
-    private List<Medico> medicos;
-
     @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_Ficha", nullable = false)
     private FichaMedica ficha;

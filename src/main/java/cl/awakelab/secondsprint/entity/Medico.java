@@ -29,12 +29,7 @@ public class Medico {
     @Column(nullable = false)
     private String especialidad;
 
-    @OneToOne(mappedBy = "medico")
-    private Visita visita;
+    @OneToMany(mappedBy = "medico")
+    private List<Visita> visita;
 
-    @ManyToMany
-    @JoinTable(name = "medico_paciente",
-    joinColumns = @JoinColumn(name = "FK_Medico", nullable = false),
-    inverseJoinColumns = @JoinColumn(name = "FK_Paciente", nullable = false))
-    private List<Paciente> pacientes;
 }
