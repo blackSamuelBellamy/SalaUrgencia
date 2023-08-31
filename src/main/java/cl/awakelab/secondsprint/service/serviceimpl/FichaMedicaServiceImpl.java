@@ -21,8 +21,11 @@ public class FichaMedicaServiceImpl implements IFichaMedicaService {
     }
 
     @Override
-    public FichaMedica actualizarFichaMedica(int id) {
-        return null;
+    public FichaMedica actualizarFichaMedica(int id, FichaMedica fichaMedicaActualizar) {
+        FichaMedica fichaMedicaEncontrada = objFichaMedicaRepo.findById(id).orElse(null);
+        fichaMedicaEncontrada.setPaciente(fichaMedicaActualizar.getPaciente());
+        fichaMedicaEncontrada.setVisitas(fichaMedicaActualizar.getVisitas());
+        return objFichaMedicaRepo.save(fichaMedicaEncontrada);
     }
 
     @Override
@@ -34,11 +37,16 @@ public class FichaMedicaServiceImpl implements IFichaMedicaService {
 
     @Override
     public FichaMedica buscarFichaMedica(int id) {
-        return null;
+        return objFichaMedicaRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarFichaMedica(int id) {
+        objFichaMedicaRepo.deleteById(id);
+    }
 
+    @Override
+    public void eliminarfichaMedica2(FichaMedica fichaMedica) {
+        objFichaMedicaRepo.delete(fichaMedica);
     }
 }

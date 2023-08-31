@@ -21,8 +21,13 @@ public class MedicoServiceImpl implements IMedicoService {
     }
 
     @Override
-    public Medico actualizarMedico(int id) {
-        return null;
+    public Medico actualizarMedico(int id, Medico medicoActualizar) {
+        Medico medicoEncontrado = objMedicoRepo.findById(id).orElse(null);
+        medicoEncontrado.setNombres(medicoActualizar.getNombres());
+        medicoEncontrado.setApellido1(medicoActualizar.getApellido1());
+        medicoEncontrado.setApellido2(medicoActualizar.getApellido2());
+        medicoEncontrado.setVisita(medicoActualizar.getVisita());
+        return objMedicoRepo.save(medicoEncontrado);
     }
 
     @Override
@@ -34,11 +39,16 @@ public class MedicoServiceImpl implements IMedicoService {
 
     @Override
     public Medico buscarMedico(int id) {
-        return null;
+        return objMedicoRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarMedico(int id) {
+        objMedicoRepo.deleteById(id);
 
+    }
+    @Override
+    public void eliminarMedico2(Medico medico) {
+        objMedicoRepo.delete(medico);
     }
 }

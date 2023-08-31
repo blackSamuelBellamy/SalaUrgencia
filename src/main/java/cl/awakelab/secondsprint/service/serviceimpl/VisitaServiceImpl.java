@@ -21,8 +21,12 @@ public class VisitaServiceImpl implements IVisitaService {
     }
 
     @Override
-    public Visita actualizarVisita(int id) {
-        return null;
+    public Visita actualizarVisita(int id, Visita visitaActualizar) {
+        Visita visitaEncontrada = objVisitaRepo.findById(id).orElse(null);
+        visitaEncontrada.setFichaMedica(visitaActualizar.getFichaMedica());
+        visitaEncontrada.setMedico(visitaActualizar.getMedico());
+        visitaEncontrada.setObservaciones(visitaActualizar.getObservaciones());
+        return objVisitaRepo.save(visitaEncontrada);
     }
 
     @Override
@@ -34,11 +38,16 @@ public class VisitaServiceImpl implements IVisitaService {
 
     @Override
     public Visita buscarVisita(int id) {
-        return null;
+        return objVisitaRepo.findById(id).orElse(null);
     }
 
     @Override
     public void eliminarVisita(int id) {
+        objVisitaRepo.deleteById(id);
+    }
 
+    @Override
+    public void elminarVisita2(Visita visita) {
+        objVisitaRepo.delete(visita);
     }
 }
