@@ -18,22 +18,22 @@ public class MedicoRestController {
         return objMedicoService.crearMedico(medico);
     }
 
-    @PostMapping
-    public Medico actualizarMedico(@RequestBody int id, Medico medico){
+    @PutMapping("/{id}")
+    public Medico actualizarMedico(@PathVariable int id, Medico medico){
         return objMedicoService.actualizarMedico(id, medico);
     }
 
     @GetMapping
     public List<Medico> listarMedicos(){return objMedicoService.listarMedicos();}
 
-    @PostMapping
-    public Medico buscarMedico(@RequestBody int id){
+    @GetMapping("/{id}")
+    public Medico buscarMedico(@PathVariable int id){
         return objMedicoService.buscarMedico(id);
     }
 
-    @PostMapping
-    public void eliminarMedico(@RequestBody int id){objMedicoService.eliminarMedico(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarMedico(@PathVariable int id){objMedicoService.eliminarMedico(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarMedico2(@RequestBody Medico medico){objMedicoService.eliminarMedico2(medico);}
 }

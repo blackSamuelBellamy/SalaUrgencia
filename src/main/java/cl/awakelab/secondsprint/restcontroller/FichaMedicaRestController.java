@@ -18,21 +18,21 @@ public class FichaMedicaRestController {
         return objFichaMedicaService.crearFichaMedica(fichaMedica);
     }
 
-    @PostMapping
-    public FichaMedica actualizarFichaMedica(@RequestBody int id, FichaMedica fichaMedica){
+    @PutMapping("/{id}")
+    public FichaMedica actualizarFichaMedica(@PathVariable int id, @RequestBody FichaMedica fichaMedica){
         return objFichaMedicaService.actualizarFichaMedica(id, fichaMedica);
     }
 
     @GetMapping
     public List<FichaMedica> listarFichasMedicas(){return objFichaMedicaService.listarFichasMedicas();}
 
-    @PostMapping
-    public FichaMedica buscarFichaMedica(@RequestBody int id){return objFichaMedicaService.buscarFichaMedica(id);}
+    @GetMapping("/{id}")
+    public FichaMedica buscarFichaMedica(@PathVariable int id){return objFichaMedicaService.buscarFichaMedica(id);}
 
-    @PostMapping
-    public void eliminarFichaMedica(@RequestBody int id){objFichaMedicaService.eliminarFichaMedica(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarFichaMedica(@PathVariable int id){objFichaMedicaService.eliminarFichaMedica(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarFichaMedica(@RequestBody FichaMedica fichaMedica){
         objFichaMedicaService.eliminarfichaMedica2(fichaMedica);}
 }

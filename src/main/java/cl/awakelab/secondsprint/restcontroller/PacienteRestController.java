@@ -18,22 +18,22 @@ public class PacienteRestController {
         return objPacienteService.crearPaciente(paciente);
     }
 
-    @PostMapping
-    public Paciente actualizarPaciente(@RequestBody int id, Paciente paciente) {
+    @PutMapping("/{id}")
+    public Paciente actualizarPaciente(@PathVariable int id,@RequestBody Paciente paciente) {
         return objPacienteService.actualizarPaciente(id, paciente);
     }
 
     @GetMapping
     public List<Paciente> listarPacientes(){return objPacienteService.listarPacientes();}
 
-    @PostMapping
-    public Paciente buscarPacienteId(@RequestBody int id){
+    @GetMapping("/{id}")
+    public Paciente buscarPacienteId(@PathVariable int id){
         return objPacienteService.buscarPaciente(id);
     }
 
-    @PostMapping
-    public void eliminarPaciente(@RequestBody int id){objPacienteService.eliminarPaciente(id);}
+    @DeleteMapping("/{id}")
+    public void eliminarPaciente(@PathVariable int id){objPacienteService.eliminarPaciente(id);}
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarPaciente2(@RequestBody Paciente paciente){objPacienteService.elminarPaciente2(paciente);}
 }

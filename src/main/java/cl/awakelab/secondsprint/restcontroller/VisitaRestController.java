@@ -18,25 +18,25 @@ public class VisitaRestController {
         return objVisitaService.crearVisita(visita);
     }
 
-    @PostMapping
-    public Visita actualizarVisita(@RequestBody int id, Visita visita){
+    @PutMapping("/{id}")
+    public Visita actualizarVisita(@PathVariable int id,@RequestBody Visita visita){
         return objVisitaService.actualizarVisita(id, visita);
     }
 
     @GetMapping
     public List<Visita> listarVisitas(){return objVisitaService.listarVisitas();}
 
-    @PostMapping
-    public Visita buscarVisitaId(@RequestBody int id){
+    @GetMapping("/{id}")
+    public Visita buscarVisitaId(@PathVariable int id){
         return objVisitaService.buscarVisita(id);
     }
 
-    @PostMapping
-    public void eliminarVisita(@RequestBody int id){
+    @DeleteMapping("/{id}")
+    public void eliminarVisita(@PathVariable int id){
         objVisitaService.eliminarVisita(id);
     }
 
-    @PostMapping
+    @DeleteMapping
     public void eliminarVisita2(@RequestBody Visita visita){
         objVisitaService.elminarVisita2(visita);
     }
