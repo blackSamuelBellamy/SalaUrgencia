@@ -28,6 +28,6 @@ public class Medico {
 
 
     @OneToMany(mappedBy = "medico")
-    private List<Visita> visita;
+    private List<Visita> listaVisitas;
 
 }
