@@ -26,7 +26,7 @@ public class MedicoServiceImpl implements IMedicoService {
         medicoEncontrado.setNombres(medicoActualizar.getNombres());
         medicoEncontrado.setApellido1(medicoActualizar.getApellido1());
         medicoEncontrado.setApellido2(medicoActualizar.getApellido2());
-        medicoEncontrado.setVisita(medicoActualizar.getVisita());
+        medicoEncontrado.setListaVisitas(medicoActualizar.getListaVisitas());
         return objMedicoRepo.save(medicoEncontrado);
     }
 
