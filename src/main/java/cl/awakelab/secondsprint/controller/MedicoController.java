@@ -1,7 +1,9 @@
 package cl.awakelab.secondsprint.controller;
 
 import cl.awakelab.secondsprint.entity.Medico;
+import cl.awakelab.secondsprint.entity.Visita;
 import cl.awakelab.secondsprint.service.IMedicoService;
+import cl.awakelab.secondsprint.service.IVisitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ public class MedicoController {
     @Autowired
     IMedicoService objMedicoService;
 
+
     @GetMapping("/listar")
     public String listarMedicos(Model model){
         List<Medico> listaMedicos = objMedicoService.listarMedicos();
@@ -28,7 +31,7 @@ public class MedicoController {
         return "templateCrearMedico";
     }
 
-    @PostMapping ("/crearMedico")
+    @PostMapping ("/crear")
     public String crearMedico(@ModelAttribute Medico medico){
         objMedicoService.crearMedico(medico);
         return "redirect:/medico/listar";
@@ -37,6 +40,6 @@ public class MedicoController {
     @PostMapping("/eliminar/{id}")
     public String eliminarMedico(@PathVariable Integer id){
         objMedicoService.eliminarMedico(id);
-        return "redirect/medico/listar";
+        return "redirect:/medico/listar";
     }
 }
