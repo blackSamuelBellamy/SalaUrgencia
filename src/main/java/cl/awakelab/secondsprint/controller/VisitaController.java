@@ -5,12 +5,12 @@ import cl.awakelab.secondsprint.entity.Medico;
 import cl.awakelab.secondsprint.entity.Visita;
 import cl.awakelab.secondsprint.service.IFichaMedicaService;
 import cl.awakelab.secondsprint.service.IMedicoService;
-import cl.awakelab.secondsprint.service.IPacienteService;
 import cl.awakelab.secondsprint.service.IVisitaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class VisitaController {
     @Autowired
     IFichaMedicaService objFichaMedicaService;
 
-    @GetMapping("")
+    @GetMapping()
     public String visitas(){
         return "redirect:/visita/listar";
     }
@@ -34,7 +34,11 @@ public class VisitaController {
     @GetMapping("/listar")
     public String listarVisitas(Model model){
         List<Visita> listaVisitas = objVisitaService.listarVisitas();
+        List<Medico> listaMedicos = objMedicoService.listarMedicos();
+        List<FichaMedica> listaFichas = objFichaMedicaService.listarFichasMedicas();
         model.addAttribute("visitas", listaVisitas);
+        model.addAttribute("medicos", listaMedicos);
+        model.addAttribute("fichas", listaFichas);
         return "templateListarVisitas";
     }
 
@@ -48,13 +52,30 @@ public class VisitaController {
         return "templateCrearVisita";
     }
 
+    @GetMapping("/editar/{id}")
+    public String editarVisita(@PathVariable int id, Model model){
+    Visita visita = objVisitaService.buscarVisita(id);
+    List<FichaMedica> fichaMedica = objFichaMedicaService.listarFichasMedicas();
+    List<Medico> medicos = objMedicoService.listarMedicos();
+    model.addAttribute("visita", visita);
+    model.addAttribute("medicos", medicos);
+    model.addAttribute("fichas", fichaMedica);
+    return "templateEditarVisitas";
+    }
+
+    @PostMapping("/editar")
+    public String editarVisita(@ModelAttribute Visita visita){
+        objVisitaService.actualizarVisita(visita.getId(), visita);
+        return "redirect:/visita/listar";
+    }
+
     @PostMapping("/crearvisita")
     public String crearVisita(@ModelAttribute Visita visita){
         objVisitaService.crearVisita(visita);
         return "redirect:/curso/listar";
     }
 
-    @PostMapping("/eliminar{id}")
+    @PostMapping("/eliminar/{id}")
     public String eliminarVisita(@PathVariable int id){
         objVisitaService.eliminarVisita(id);
         return "redirect:/visita/listar";

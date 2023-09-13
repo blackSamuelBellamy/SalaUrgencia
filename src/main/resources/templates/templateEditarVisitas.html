@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar | visita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+<header th:include="~{../static/html/header.html}"></header>
+<section class="container">
+  <div class="text-center">
+    <h2 class="border border-success text-success">Modificar Visita</h2>
+  </div>
+  <br>
+  <br>
+  <div>
+    <form th:action="@{/visita/editar}" method="post">
+      <div class="form-group row">
+        <label for="id" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+          <input type="hidden" class="form-control" id="id" name="id" th:value="${visita.id}">
+        </div>
+      </div>
+      <div>
+        <label for="observaciones" class="form-label">Observaciones</label>
+        <textarea class="form-control" id="observaciones" rows="3" name="observaciones" required th:text="${visita.observaciones}"></textarea>
+      </div>
+      <br>
+      <br>
+      <div class="form-group row">
+        <label for="medico" class="col-sm-3 col-form-label" > Seleccione Médico:</label>
+        <div class="col-sm-9">
+          <select class="form-control" name="medico" id="medico" required>
+            <option th:selected="${visita.medico.getId()}" th:value="${medico.getId()}"  th:text="${medico.getNombres()}" th:each="medico: ${medicos}" ></option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="form-group row">
+        <label for="fichaMedica" class="col-sm-3 col-form-label" > Seleccione Ficha Médica:</label>
+        <div class="col-sm-9">
+          <select class="form-control" name="fichaMedica" id="fichaMedica" required>
+            <option th:each="ficha: ${fichas}" th:selected="${visita.fichaMedica}" th:value="${ficha.getId()}" th:text="${ficha.getId()}"></option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-5"></div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-outline-success">Modificar Visita</button>
+        </div>
+        <div class="col-5"></div>
+      </div>
+      <br>
+      <br>
+    </form>
+  </div>
+</section>
+</body>
+</html>
