@@ -7,6 +7,7 @@ import java.util.List;
 public interface IMedicoService {
     public Medico crearMedico(Medico medicoACrear);
     public Medico actualizarMedico(int id, Medico medico);
+    public Medico actualizarMedico( Medico medico);
     public List<Medico> listarMedicos();
     public Medico buscarMedico(int id);
     public void eliminarMedico(int id);

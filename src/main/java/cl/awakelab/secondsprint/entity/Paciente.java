@@ -27,8 +27,7 @@ public class Paciente {
     @Column(nullable = false, length = 30)
     private String apellido2;
 
-    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_Ficha", nullable = false)
+    @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private FichaMedica ficha;
 
 }

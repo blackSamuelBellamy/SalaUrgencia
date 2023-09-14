@@ -23,14 +23,14 @@
             <label for="medico" class="form-label">Médico</label>
             <select class="form-control" name="medico" id="medico" required>
                 <option th:each="medico : ${medicos}" th:value="${medico.id}"
-                        th:text="${medico.getNombres()} + ${medico.getApellido1()}"></option>
+                        th:text="${medico.getNombres()} +  ${medico.getApellido1()}"></option>
             </select>
         </div>
         <div>
             <label for="fichaMedica" class="form-label">Ficha Médica</label>
             <select class="form-control" name="fichaMedica" id="fichaMedica" required>
                 <option th:each="ficha : ${fichasMedicas}" th:value="${ficha.id}"
-                        th:text="${ficha.id}"></option>
+                        th:text="${ficha.getId()}"></option>
             </select>
         </div>
         <div class="mt-3">

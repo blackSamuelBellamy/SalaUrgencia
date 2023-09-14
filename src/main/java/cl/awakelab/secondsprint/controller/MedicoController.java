@@ -37,6 +37,20 @@ public class MedicoController {
         return "redirect:/medico/listar";
     }
 
+    @GetMapping("/actualizar/{id}")
+    public String actualizarMedicoForm(Model model, @PathVariable Integer id){
+        Medico medico = objMedicoService.buscarMedico(id);
+        model.addAttribute("medico",medico);
+        return "templateActualizarMedico";
+    }
+
+    @PostMapping("/actualizar")
+    public String actualizarMedico(@ModelAttribute Medico medico){
+        objMedicoService.actualizarMedico(medico);
+        return "redirect:/medico/listar";
+    }
+
+
     @PostMapping("/eliminar/{id}")
     public String eliminarMedico(@PathVariable Integer id){
         objMedicoService.eliminarMedico(id);

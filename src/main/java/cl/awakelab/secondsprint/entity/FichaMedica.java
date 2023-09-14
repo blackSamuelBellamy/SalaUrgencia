@@ -19,11 +19,14 @@ public class FichaMedica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne(mappedBy = "ficha")
+
+
+    @OneToOne
+    @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
     @OneToMany(mappedBy = "fichaMedica")
-    private List<Visita> visitas;
+    private List<Visita> listaVisitas;
 
 
 }

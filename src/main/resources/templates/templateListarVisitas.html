@@ -17,7 +17,7 @@
         <tr>
             <th>ID</th>
             <th>Observaciones</th>
-            <th>Medico</th>
+            <th class="text-center">Medico</th>
             <th>Ficha Médica</th>
             <th>Editar</th>
             <th>Eliminar</th>
@@ -26,15 +26,15 @@
         <tbody>
         <tr th:each="visita: ${visitas}">
             <td th:text="${visita.id}" class="col-1">></td>
-            <td th:text="${visita.observaciones}" class="col-2"></td>
-            <td th:text="${visita.getMedico()}" class="col-1"></td>
-            <td th:text="${visita.getFichaMedica()}" class="col-1"></td>
+            <td th:text="${visita.observaciones}" class="col-4"></td>
+            <td th:text="${medicos.get(visita.getMedico().getId()).getNombres()}" class="col-3 text-center"></td>
+            <td th:text="${visita.fichaMedica.getId()}" class="col-1"></td>
             <td class="col-1"><form th:action="@{/visita/editar/{id}(id=${visita.id})}"
                                     method="get">
                 <button class="btn btn-warning" type="submit">Editar</button>
             </form></td>
             <td class="col-1"><form th:action="@{/visita/eliminar/{id}(id=${visita.id})}"
-                                    method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este usuario?')">
+                                    method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar la visita?')">
                 <button class="btn btn-danger" type="submit">Eliminar</button>
             </form></td>
         </tr>
