@@ -26,11 +26,11 @@
     <tbody>
     <tr th:each="ficha: ${listaFichasMedicas}">
       <td th:text="${ficha.id}" class="col-1"></td>
-      <td th:text="${ficha.paciente.getNombres()+ ' ' + ficha.paciente.getApellido1()+ ' ' + ficha.paciente.getApellido2()}" class="col-1">Paciente Obj</td>
+      <td th:text="${ficha.paciente.nombres} +' ' + ${ficha.paciente.apellido1}+' ' + ${ficha.paciente.apellido2}" class="col-1"></td>
       <td>
         <select name="medico" id="medico">
           <th:block th:each="visita : ${ficha.listaVisitas}">
-            <option th:value="${visita.id}" th:text="${visita.medico.getNombres() + ' ' + visita.medico.getApellido1()}"></option>
+            <option th:value="${visita.id}" th:text="${visita.medico.nombres + ' ' + visita.medico.apellido1}"></option>
           </th:block>
         </select>
       </td>

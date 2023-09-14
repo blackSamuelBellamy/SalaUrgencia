@@ -37,7 +37,7 @@ public class FichaMedicaController {
         model.addAttribute("listaPacientes", listaPacientes);
         List<Visita> listaVisitas = objVistaService.listarVisitas();
         model.addAttribute("listaVisitas", listaVisitas);
-        return "crearFichaMedica";
+        return "templateCrearFicha";
     }
 
     @PostMapping("/crear")
