@@ -31,6 +31,16 @@ public class MedicoServiceImpl implements IMedicoService {
     }
 
     @Override
+    public Medico actualizarMedico(Medico medicoActualizar) {
+        Medico medicoEncontrado = objMedicoRepo.findById(medicoActualizar.getId()).orElse(null);
+        medicoEncontrado.setNombres(medicoActualizar.getNombres());
+        medicoEncontrado.setApellido1(medicoActualizar.getApellido1());
+        medicoEncontrado.setApellido2(medicoActualizar.getApellido2());
+        medicoEncontrado.setListaVisitas(medicoActualizar.getListaVisitas());
+        return objMedicoRepo.save(medicoEncontrado);
+    }
+
+    @Override
     public List<Medico> listarMedicos() {
         List<Medico> listaDoctores = new ArrayList<>();
         listaDoctores = objMedicoRepo.findAll();
