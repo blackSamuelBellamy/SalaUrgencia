@@ -33,6 +33,8 @@ public class FichaMedicaController {
 
     @GetMapping("/crear")
     public String formCrearFichaMedica(Model model){
+        List<Paciente> listaPacientes = objPacienteService.listarPacientes();
+        model.addAttribute("listaPacientes", listaPacientes);
         List<Visita> listaVisitas = objVistaService.listarVisitas();
         model.addAttribute("listaVisitas", listaVisitas);
         return "crearFichaMedica";
