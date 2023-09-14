@@ -72,7 +72,7 @@ public class VisitaController {
     @PostMapping("/crearvisita")
     public String crearVisita(@ModelAttribute Visita visita){
         objVisitaService.crearVisita(visita);
-        return "redirect:/curso/listar";
+        return "redirect:/visita/listar";
     }
 
     @PostMapping("/eliminar/{id}")
