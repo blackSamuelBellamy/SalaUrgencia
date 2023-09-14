@@ -26,7 +26,7 @@ public class FichaMedica {
     private Paciente paciente;
 
     @OneToMany(mappedBy = "fichaMedica")
-    private List<Visita> visitas;
+    private List<Visita> listaVisitas;
 
 
 }
