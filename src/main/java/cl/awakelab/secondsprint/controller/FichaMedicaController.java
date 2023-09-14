@@ -24,7 +24,7 @@ public class FichaMedicaController {
     @Autowired
     IVisitaService objVistaService;
 
-    @GetMapping("/listar")
+    @GetMapping()
     public String listarFichasMedicas(Model model){
         List<FichaMedica> listaFichas = objFichaMedicaService.listarFichasMedicas();
         model.addAttribute("listaFichasMedicas",listaFichas);
@@ -33,9 +33,11 @@ public class FichaMedicaController {
 
     @GetMapping("/crear")
     public String formCrearFichaMedica(Model model){
+        List<Paciente> listaPacientes = objPacienteService.listarPacientes();
+        model.addAttribute("listaPacientes", listaPacientes);
         List<Visita> listaVisitas = objVistaService.listarVisitas();
         model.addAttribute("listaVisitas", listaVisitas);
-        return "crearFichaMedica";
+        return "templateCrearFicha";
     }
 
     @PostMapping("/crear")

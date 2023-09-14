@@ -24,7 +24,7 @@ public class FichaMedicaServiceImpl implements IFichaMedicaService {
     public FichaMedica actualizarFichaMedica(int id, FichaMedica fichaMedicaActualizar) {
         FichaMedica fichaMedicaEncontrada = objFichaMedicaRepo.findById(id).orElse(null);
         fichaMedicaEncontrada.setPaciente(fichaMedicaActualizar.getPaciente());
-        fichaMedicaEncontrada.setVisitas(fichaMedicaActualizar.getVisitas());
+        fichaMedicaEncontrada.setListaVisitas(fichaMedicaActualizar.getListaVisitas());
         return objFichaMedicaRepo.save(fichaMedicaEncontrada);
     }
 

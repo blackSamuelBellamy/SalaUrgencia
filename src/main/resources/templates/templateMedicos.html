@@ -35,7 +35,7 @@
           <option th:each="visita : ${medico.listaVisitas}" th:text="${visita.id}" th:value="${visita.id}"></option>
         </select>
       </td>
-      <td class="col-1"><form th:action="@{/medico/editar/{id}(id=${medico.id})}"
+      <td class="col-1"><form th:action="@{/medico/actualizar/{id}(id=${medico.id})}"
                               method="get">
         <button class="btn btn-warning" type="submit">Editar</button>
       </form></td>
