@@ -17,7 +17,8 @@
     <tr>
       <th>ID</th>
       <th>Paciente</th>
-      <th>Visitas</th>
+      <th>Medico</th>
+      <th>Observaciones</th>
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
@@ -25,8 +26,21 @@
     <tbody>
     <tr th:each="ficha: ${listaFichasMedicas}">
       <td th:text="${ficha.id}" class="col-1"></td>
-      <td class="col-1">Paciente Obj</td>
-      <td class="col-1">Visitas Lista</td>
+      <td th:text="${ficha.paciente.getNombres()+ ' ' + ficha.paciente.getApellido1()+ ' ' + ficha.paciente.getApellido2()}" class="col-1">Paciente Obj</td>
+      <td>
+        <select name="medico" id="medico">
+          <th:block th:each="visita : ${ficha.listaVisitas}">
+            <option th:value="${visita.id}" th:text="${visita.medico.getNombres() + ' ' + visita.medico.getApellido1()}"></option>
+          </th:block>
+        </select>
+      </td>
+      <td>
+        <select name="observacion" id="observacion">
+          <th:block th:each="visita : ${ficha.listaVisitas}">
+            <option th:value="${visita.id}" th:text="${visita.observaciones}"></option>
+          </th:block>
+        </select>
+      </td>
       <td class="col-1">
         <form th:action="@{/fichamedica/actualizar/{id}(id=${ficha.id})}"
                               method="get">

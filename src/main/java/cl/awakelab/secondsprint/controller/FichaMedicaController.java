@@ -24,7 +24,7 @@ public class FichaMedicaController {
     @Autowired
     IVisitaService objVistaService;
 
-    @GetMapping("/listar")
+    @GetMapping()
     public String listarFichasMedicas(Model model){
         List<FichaMedica> listaFichas = objFichaMedicaService.listarFichasMedicas();
         model.addAttribute("listaFichasMedicas",listaFichas);
