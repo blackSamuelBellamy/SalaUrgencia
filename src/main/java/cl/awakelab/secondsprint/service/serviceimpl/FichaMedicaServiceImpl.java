@@ -46,6 +46,10 @@ public class FichaMedicaServiceImpl implements IFichaMedicaService {
     }
 
     @Override
+    public void eliminarFichaMedicaPaciente(int id){
+    objFichaMedicaRepo.deleteFichaMedicaByPacienteId(id);
+    }
+    @Override
     public void eliminarfichaMedica2(FichaMedica fichaMedica) {
         objFichaMedicaRepo.delete(fichaMedica);
     }

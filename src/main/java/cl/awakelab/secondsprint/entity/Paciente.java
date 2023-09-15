@@ -1,5 +1,6 @@
 package cl.awakelab.secondsprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Paciente {
 
     @Column(nullable = false, length = 30)
     private String apellido2;
+
 
     @OneToOne(mappedBy = "paciente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private FichaMedica ficha;

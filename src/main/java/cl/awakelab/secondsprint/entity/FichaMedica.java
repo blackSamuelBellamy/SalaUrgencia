@@ -1,5 +1,6 @@
 package cl.awakelab.secondsprint.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,11 +21,12 @@ public class FichaMedica {
     private int id;
 
 
-
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "fichaMedica")
     private List<Visita> listaVisitas;
 

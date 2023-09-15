@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IFichaMedicaRepository extends JpaRepository<FichaMedica, Integer> {
+
+    void deleteFichaMedicaByPacienteId(int id);
 }

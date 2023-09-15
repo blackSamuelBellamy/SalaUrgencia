@@ -23,11 +23,13 @@ public class MedicoController {
     public String listarMedicos(Model model){
         List<Medico> listaMedicos = objMedicoService.listarMedicos();
         model.addAttribute("listaMedicos", listaMedicos);
+        model.addAttribute("titulo","Gestión de Médicos");
         return "templateMedicos";
     }
 
     @GetMapping("/crear")
-    public String formCrearMedico(){
+    public String formCrearMedico(Model model){
+        model.addAttribute("titulo","Creación de Médico");
         return "templateCrearMedico";
     }
 
