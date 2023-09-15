@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/visita")
+@CrossOrigin(origins = "*")
 public class VisitaRestController {
     @Autowired
     IVisitaService objVisitaService;

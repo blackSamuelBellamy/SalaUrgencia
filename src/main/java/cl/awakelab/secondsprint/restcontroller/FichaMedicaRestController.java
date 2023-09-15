@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/fichamedica")
+@CrossOrigin(origins = "*")
 public class FichaMedicaRestController {
     @Autowired
     IFichaMedicaService objFichaMedicaService;

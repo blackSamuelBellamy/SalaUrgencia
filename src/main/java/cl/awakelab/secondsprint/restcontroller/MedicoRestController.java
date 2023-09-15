@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/medico")
+@CrossOrigin(origins = "*")
 public class MedicoRestController {
     @Autowired
     IMedicoService objMedicoService;
@@ -29,6 +30,11 @@ public class MedicoRestController {
     @GetMapping("/{id}")
     public Medico buscarMedico(@PathVariable int id){
         return objMedicoService.buscarMedico(id);
+    }
+
+    @GetMapping("/visita/{id}")
+    public Medico buscarMedicoVisita(@PathVariable int id){
+        return objMedicoService.buscarMedicoVisita(id);
     }
 
     @DeleteMapping("/{id}")
