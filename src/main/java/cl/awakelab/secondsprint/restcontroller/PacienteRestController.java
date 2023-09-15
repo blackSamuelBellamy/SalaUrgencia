@@ -19,8 +19,8 @@ public class PacienteRestController {
     }
 
     @PutMapping("/{id}")
-    public Paciente actualizarPaciente(@PathVariable int id,@RequestBody Paciente paciente) {
-        return objPacienteService.actualizarPaciente(id, paciente);
+    public Paciente actualizarPaciente(@RequestBody Paciente paciente) {
+        return objPacienteService.actualizarPaciente(paciente);
     }
 
     @GetMapping

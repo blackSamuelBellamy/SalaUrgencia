@@ -21,8 +21,8 @@ public class PacienteServiceImpl implements IPacienteService {
     }
 
     @Override
-    public Paciente actualizarPaciente(int id, Paciente pacienteActualizar) {
-        Paciente pacienteEncontrado = objPacienteRepo.findById(id).orElse(null);
+    public Paciente actualizarPaciente(Paciente pacienteActualizar) {
+        Paciente pacienteEncontrado = objPacienteRepo.findById(pacienteActualizar.getId()).orElse(null);
         pacienteEncontrado.setNombres(pacienteActualizar.getNombres());
         pacienteEncontrado.setApellido1(pacienteActualizar.getApellido1());
         pacienteEncontrado.setApellido2(pacienteActualizar.getApellido2());
@@ -32,9 +32,7 @@ public class PacienteServiceImpl implements IPacienteService {
 
     @Override
     public List<Paciente> listarPacientes() {
-        List<Paciente> listaPacientes = new ArrayList<>();
-        listaPacientes = objPacienteRepo.findAll();
-        return listaPacientes;
+        return objPacienteRepo.findAll();
     }
 
     @Override

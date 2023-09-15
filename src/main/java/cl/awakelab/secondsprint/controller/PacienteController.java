@@ -1,7 +1,6 @@
 package cl.awakelab.secondsprint.controller;
 
 import cl.awakelab.secondsprint.entity.FichaMedica;
-import cl.awakelab.secondsprint.entity.Medico;
 import cl.awakelab.secondsprint.entity.Paciente;
 import cl.awakelab.secondsprint.service.IFichaMedicaService;
 import cl.awakelab.secondsprint.service.IPacienteService;
@@ -39,6 +38,19 @@ public class PacienteController {
         FichaMedica ficha = new FichaMedica();
         ficha.setPaciente(paciente);
         objFichaMedicaService.crearFichaMedica(ficha);
+        return "redirect:/paciente/listar";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String formEditarUsuario(Model model, @PathVariable int id){
+        Paciente paciente = objPacienteService.buscarPaciente(id);
+        model.addAttribute("paciente",paciente);
+        return "templateEditarPaciente";
+    }
+
+    @PostMapping("/editar")
+    public String editarUsuario(@ModelAttribute Paciente paciente){
+        objPacienteService.actualizarPaciente(paciente);
         return "redirect:/paciente/listar";
     }
 
