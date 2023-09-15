@@ -27,7 +27,7 @@
         <tr th:each="visita: ${visitas}">
             <td th:text="${visita.id}" class="col-1">></td>
             <td th:text="${visita.observaciones}" class="col-4"></td>
-            <td th:text="${medicos.get(visita.getMedico().getId()).getNombres()}" class="col-3 text-center"></td>
+            <td th:text="${visita.medico.getNombres() + ' ' + visita.medico.apellido1}" class="col-3 text-center"></td>
             <td th:text="${visita.fichaMedica.getId()}" class="col-1"></td>
             <td class="col-1"><form th:action="@{/visita/editar/{id}(id=${visita.id})}"
                                     method="get">

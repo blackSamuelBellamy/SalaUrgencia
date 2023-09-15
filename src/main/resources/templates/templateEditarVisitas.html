@@ -33,7 +33,7 @@
         <label for="medico" class="col-sm-3 col-form-label" > Seleccione Médico:</label>
         <div class="col-sm-9">
           <select class="form-control" name="medico" id="medico" required>
-            <option th:selected="${visita.medico.getId()}" th:value="${medico.getId()}"  th:text="${medico.getNombres()}" th:each="medico: ${medicos}" ></option>
+            <option th:value="${medico.getId()}"  th:text="${medico.getNombres()} + ' '+  ${medico.getApellido1()}" th:each="medico: ${medicos}" ></option>
           </select>
         </div>
       </div>

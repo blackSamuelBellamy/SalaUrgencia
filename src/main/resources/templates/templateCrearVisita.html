@@ -23,7 +23,7 @@
             <label for="medico" class="form-label">Médico</label>
             <select class="form-control" name="medico" id="medico" required>
                 <option th:each="medico : ${medicos}" th:value="${medico.id}"
-                        th:text="${medico.getNombres()} +  ${medico.getApellido1()}"></option>
+                        th:text="${medico.getNombres()} + ' ' + ${medico.getApellido1()}"></option>
             </select>
         </div>
         <div>

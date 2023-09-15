@@ -34,11 +34,7 @@ public class VisitaController {
     @GetMapping("/listar")
     public String listarVisitas(Model model){
         List<Visita> listaVisitas = objVisitaService.listarVisitas();
-        List<Medico> listaMedicos = objMedicoService.listarMedicos();
-        List<FichaMedica> listaFichas = objFichaMedicaService.listarFichasMedicas();
         model.addAttribute("visitas", listaVisitas);
-        model.addAttribute("medicos", listaMedicos);
-        model.addAttribute("fichas", listaFichas);
         return "templateListarVisitas";
     }
 
