@@ -27,7 +27,7 @@ public class FichaMedica {
     private Paciente paciente;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "fichaMedica")
+    @OneToMany(mappedBy = "fichaMedica", cascade = CascadeType.ALL)
     private List<Visita> listaVisitas;
 
 
