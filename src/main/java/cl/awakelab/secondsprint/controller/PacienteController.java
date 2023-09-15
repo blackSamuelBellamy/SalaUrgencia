@@ -1,6 +1,5 @@
 package cl.awakelab.secondsprint.controller;
 
-import cl.awakelab.secondsprint.entity.Medico;
 import cl.awakelab.secondsprint.entity.Paciente;
 import cl.awakelab.secondsprint.service.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +30,19 @@ public class PacienteController {
     @PostMapping("/crear")
     public String crearPaciente(@ModelAttribute Paciente paciente){
         objPacienteService.crearPaciente(paciente);
+        return "redirect:/paciente/listar";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String formEditarUsuario(Model model, @PathVariable int id){
+        Paciente paciente = objPacienteService.buscarPaciente(id);
+        model.addAttribute("paciente",paciente);
+        return "templateEditarPaciente";
+    }
+
+    @PostMapping("/editar")
+    public String editarUsuario(@ModelAttribute Paciente paciente){
+        objPacienteService.actualizarPaciente(paciente);
         return "redirect:/paciente/listar";
     }
 

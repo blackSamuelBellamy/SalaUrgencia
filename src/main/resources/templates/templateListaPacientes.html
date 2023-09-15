@@ -19,14 +19,13 @@
       <th>Nombres</th>
       <th>Apellido 1</th>
       <th>Apellido 2</th>
-      <th>Ficha ID</th>
       <th>Editar</th>
       <th>Eliminar</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="paciente: ${listaPacientes}">
-      <td th:text="${paciente.id}" class="col-1">></td>
+      <td th:text="${paciente.id}" class="col-1"></td>
       <td th:text="${paciente.nombres}" class="col-2"></td>
       <td th:text="${paciente.apellido1}" class="col-1"></td>
       <td th:text="${paciente.apellido2}" class="col-1"></td>
