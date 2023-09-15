@@ -20,8 +20,6 @@
       <th>ID Visita</th>
       <th>Medico Tratante</th>
       <th>Observaciones Visita</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
     </tr>
     </thead>
     <tbody th:width="visitaSeleccionada">
@@ -38,18 +36,6 @@
       </td>
       <td class="col-2">
         <textarea id="observaciones-${ficha.id}" class="observaciones" disabled></textarea>
-      </td>
-      <td class="col-1">
-        <form th:action="@{/fichamedica/actualizar/{id}(id=${ficha.id})}"
-                              method="get">
-        <button class="btn btn-warning" type="submit">Editar</button>
-        </form>
-      </td>
-      <td class="col-1">
-        <form th:action="@{/fichamedica/eliminar/{id}(id=${ficha.id})}"
-              method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar esta ficha?')">
-          <button class="btn btn-danger" type="submit">Eliminar</button>
-        </form>
       </td>
     </tr>
     </tbody>

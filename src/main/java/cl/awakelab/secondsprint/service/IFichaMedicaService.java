@@ -10,5 +10,6 @@ public interface IFichaMedicaService {
     public List<FichaMedica> listarFichasMedicas();
     public FichaMedica buscarFichaMedica(int id);
     public void eliminarFichaMedica(int id);
+    public void eliminarFichaMedicaPaciente(int id);
     public void eliminarfichaMedica2(FichaMedica fichaMedica);
 }
