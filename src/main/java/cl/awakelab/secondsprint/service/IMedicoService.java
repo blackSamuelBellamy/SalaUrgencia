@@ -10,6 +10,7 @@ public interface IMedicoService {
     public Medico actualizarMedico( Medico medico);
     public List<Medico> listarMedicos();
     public Medico buscarMedico(int id);
+    public Medico buscarMedicoVisita(int id);
     public void eliminarMedico(int id);
     public void eliminarMedico2(Medico medico);
 }

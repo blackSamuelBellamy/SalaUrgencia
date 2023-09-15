@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IMedicoRepository extends JpaRepository<Medico, Integer> {
+    //Medico findByListaVisitasContainsOrId(int id);
+    Medico findByListaVisitasId(int id);
 }

@@ -1,7 +1,9 @@
 package cl.awakelab.secondsprint.service.serviceimpl;
 
 import cl.awakelab.secondsprint.entity.Medico;
+import cl.awakelab.secondsprint.entity.Visita;
 import cl.awakelab.secondsprint.repository.IMedicoRepository;
+import cl.awakelab.secondsprint.repository.IVisitaRepository;
 import cl.awakelab.secondsprint.service.IMedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ import java.util.List;
 public class MedicoServiceImpl implements IMedicoService {
     @Autowired
     IMedicoRepository objMedicoRepo;
+
+
     @Override
     public Medico crearMedico(Medico medicoACrear) {
         Medico medico = new Medico();
@@ -51,6 +55,12 @@ public class MedicoServiceImpl implements IMedicoService {
     public Medico buscarMedico(int id) {
         return objMedicoRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public Medico buscarMedicoVisita(int id) {
+        return objMedicoRepo.findByListaVisitasId(id);
+    }
+
 
     @Override
     public void eliminarMedico(int id) {
