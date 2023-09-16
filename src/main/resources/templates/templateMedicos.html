@@ -21,7 +21,6 @@
       <th>Apellido 2</th>
       <th>Visitas</th>
       <th>Editar</th>
-      <th>Eliminar</th>
     </tr>
     </thead>
     <tbody>
@@ -39,12 +38,7 @@
                               method="get">
         <button class="btn btn-warning" type="submit">Editar</button>
       </form></td>
-      <td class="col-1">
-        <form th:action="@{/medico/eliminar/{id}(id=${medico.id})}"
-              method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este médico?')">
-          <button class="btn btn-danger" type="submit">Eliminar</button>
-        </form>
-      </td>
+
     </tr>
     </tbody>
 
