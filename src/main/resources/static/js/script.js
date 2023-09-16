@@ -2,7 +2,7 @@
     // Obtener referencias a los elementos HTML
     const selectElements = document.querySelectorAll("select[name=listaVisitas]");
     const textareaElements = document.querySelectorAll("textarea.observaciones");
-    const nombreMedico = document.querySelector("#nombreMedico");
+    const nombreMedico = document.querySelector("span.nombreMedico");
 
     // Función para obtener y mostrar observaciones
     function mostrarObservaciones(selectedVisitId, textarea) {

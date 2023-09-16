@@ -18,7 +18,7 @@
       <th>ID</th>
       <th>Paciente</th>
       <th>ID Visita</th>
-      <th>Medico Tratante</th>
+      <!--<th>Medico Tratante</th>-->
       <th>Observaciones Visita</th>
     </tr>
     </thead>
@@ -31,9 +31,11 @@
             <option th:each="visita : ${ficha.listaVisitas}" th:value="${visita.id}" th:text="${visita.id}" ></option>
         </select>
       </td>
+      <!--
       <td class="col-2">
-        <span id="nombreMedico" name="nombreMedico"></span>
+        <span id="nombreMedico" name="nombreMedico" class="nombreMedico"></span>
       </td>
+      -->
       <td class="col-2">
         <textarea id="observaciones-${ficha.id}" class="observaciones" disabled></textarea>
       </td>
